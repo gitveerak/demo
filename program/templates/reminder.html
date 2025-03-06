@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home Page</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    
+    body{
+        background-color: orange;
+    }
+    nav{
+        position: fixed;
+        z-index: 90;
+        width: 100%;
+        padding: 1em;
+        background-color: rgb(95, 95, 243);
+        }
+    .wrap_nav{
+        display: flex;
+        align-items: center;
+        margin-left: 5em;
+        gap: 1em;
+        .nav2{display: none;}
+        .hamburger{display: none;}
+        .logo{
+            color: white;
+            font-size: 25px;
+            font-weight: 700;
+        }
+        .search{
+            background-image:url("static/images/magnifying-glass.png");
+            background-repeat: no-repeat;
+            border: 1px solid rgb(247, 241, 241);
+            border-radius: 10px;
+            height: 2em;
+            width: 19em;
+            padding: 0 2em;
+            background-size: 23px;
+            background-position: 17px center;
+            outline: none;
+            background-color: rgb(231, 238, 243);
+            margin-right: 1em;
+            margin-left: 1em;
+            font-size: 1.5em;
+        }
+        ul{
+            display: flex;
+            list-style-type: none;
+            li{
+                display: inline-block;
+                padding: 0.4em;
+                font: 1.1em sans-serif;
+                font-weight: 700;
+                margin-right: 1em;
+                color: white;
+            }
+            li:hover{
+                background-color:  rgb(138, 138, 243);
+                border-radius: 8px;
+            }
+        }
+    }
+
+    .notification{
+        display: none;
+        position: absolute;
+        pointer-events: none;
+        top: 10%;
+        left: 0;
+        z-index: 99;
+        max-width: 30rem;
+        border-end-end-radius: 1em;
+        border-start-end-radius: 1em;
+        background-color: wheat;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 0.6rem 1.2rem 0.5rem 3.2rem;
+        height: 4%;
+        text-align: right;
+    }
+
+    main{
+        padding: 7em 2em 2em 2em;
+        display: flex;
+        width: 95%;
+        .ts_cont{
+            width: 100%;
+            height: 30em;
+            background-color: black;
+            border-radius: 12px;
+            color: white;
+            display: flex;
+            .main_left{
+                background-color: rgb(19, 18, 18);
+                border-radius: 12px;
+                width: 60%;
+                margin: 3%;
+                .left_form{ 
+                    display: flex;
+                    justify-content: space-evenly;
+                    padding: 1em;
+                }
+                input{
+                    outline: none;
+                    font-size: large;
+                }
+                .label{
+                    color: greenyellow;
+                    font-weight: 600;
+                    text-align: center;
+                    padding-bottom: 2em;
+                }
+                .con{
+                    display: flex;
+                    flex-direction: column;
+                    .time_btn{
+                        display: flex;
+                        .time_input{
+                            width: 80%;
+                        }
+                    }
+                    .reset_btn{
+                        width: 20%;
+                        background-color: red;
+                        cursor: pointer;
+                        border: none;
+                        color: white;
+                        font-weight: 700;
+                        border-radius: 12%;
+                    }
+                }
+                .cf_btns{
+                    display: flex;
+                    gap: 1em;
+                    justify-content: center;
+                    padding-top: 1.4em;
+                    .cf_btn{
+                        border: none;
+                        border-radius: 5px;
+                        width: 6em;
+                        height: 2em;
+                        font-size: 19px;
+                    }
+                    .cf_btn:hover{
+                        cursor: pointer;
+                        font-size: 21px;
+                        width: 6.1em;
+                        height: 2.1em;
+                    }
+                    .cf_btn1{
+                        background-color: lawngreen;
+                        cursor: pointer;
+                    }
+                    .cf_btn2{
+                        background-color: red;
+                        cursor: pointer;
+                    }
+                }
+                .cbf_btns{
+                    display: flex;
+                    gap: 1em;
+                    justify-content: center;
+                    padding-top: 2em;
+                    .cbf_btn{
+                        border: none;
+                        border-radius: 5px;
+                        width: 6em;
+                        height: 2em;
+                        font-size: 19px;
+                    }
+                    .cbf_btn:hover{
+                        cursor: pointer;
+                        font-size: 21px;
+                        width: 6.1em;
+                        height: 2.1em;
+                    }
+                    .cbf_btn1{
+                        background-color: lawngreen;
+                        cursor: pointer;
+                    }
+                    .cbf_btn2{
+                        background-color: red;
+                        cursor: pointer;
+                    }
+                }
+                .background_cf {
+                    display: none;
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.4);
+                    backdrop-filter: blur(5px);
+                }
+                .opacity_bottom_form {
+                    display: none;
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.4);
+                    backdrop-filter: blur(5px);
+                }
+                .confirm_form {
+                    background: rgb(238, 238, 238);
+                    color: black;
+                    width: 50%;
+                    height: 5em;
+                    padding: 20px;
+                    margin: 15% auto;
+                    border-radius: 10px;
+                    text-align: center;
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                    animation: fadeIn 0.3s ease-in-out;
+                    font-size: large;
+                    span{
+                        font-size: larger;
+                        font-weight: bolder;
+                    }
+                }
+                .confirm_bottom_form {
+                    background: rgb(238, 238, 238);
+                    color: black;
+                    width: 35%;
+                    height: 2em;
+                    padding: 10px;
+                    margin: 15% auto;
+                    border-radius: 10px;
+                    text-align: center;
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                    animation: fadeIn 0.3s ease-in-out;
+                    font-size: large;
+                    span{
+                        font-size: larger;
+                        font-weight: bolder;
+                    }
+                }
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: scale(0.9); }
+                    to { opacity: 1; transform: scale(1); }
+                }
+                .bottom_form {
+                    max-height: 210px; 
+                    overflow-y: auto;   
+                    padding: 10px;
+                }
+
+                .bottom_form::-webkit-scrollbar {
+                    width: 6px;
+                }
+
+                .bottom_form::-webkit-scrollbar-track {
+                    background: #f1f1f1;  
+                    border-radius: 10px;
+                }
+
+                .bottom_form::-webkit-scrollbar-thumb {
+                    background: #888; 
+                    border-radius: 10px;
+                }
+
+                .bottom_form::-webkit-scrollbar-thumb:hover {
+                    background: #555; 
+                }
+
+                table{
+                    width: 100%;
+                }
+
+                th{
+                    padding: 9px;
+                    color: orange;
+                    font-weight: bolder;
+                    text-align: left;
+                }
+                td{
+                    padding: 9px;
+                    color:ghostwhite;
+                    text-align: left;
+                    font-size: 1.2rem;
+                }
+                .delete_btn{
+                    display: none;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 23%;
+                    color:lightcyan;
+                    font-size: 82%;
+                    cursor: pointer;
+                }
+                .delete_btn:hover{
+                    color:red;
+                    cursor: pointer;
+                }
+                .delete_data:hover{
+                    position: relative;
+                    .delete_btn{
+                        display: block;
+                    }
+                }
+                .delete_confirmation{
+                    display: flex;
+                    gap: 1em;
+                    justify-content: center;
+                    padding-top: 1.4em;
+                    .del_cf_btn{
+                        border: none;
+                        border-radius: 5px;
+                        width: 6em;
+                        height: 2em;
+                        font-size: 19px;
+                    }
+                    .del_cf_btn:hover{
+                        cursor: pointer;
+                        font-size: 21px;
+                        width: 6.1em;
+                        height: 2.1em;
+                    }
+                    .del_cf_btn1{
+                        background-color: lawngreen;
+                        cursor: pointer;
+                    }
+                    .del_cf_btn2{
+                        background-color: red;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .main_right{
+            width: 37%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            .Timing_chart{
+                height: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                #timer{
+                    display: flex;
+                    width: 37%;
+                    height: 80%;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 2em;
+                    font-weight: bold;
+                }
+            }
+            #clock{
+                text-align: right;
+                padding: 1em;
+                font-size: 1.4em;
+                font-weight: bold;
+                color: greenyellow;
+            }
+        }
+    }
+    
+    @media (max-width:380px) {
+        body{
+            background-color: seashell;
+        }  
+        nav{
+            position: fixed;
+            width: 100%;
+            padding: 0.5em;
+            z-index: 90;
+            background-color:orange;
+            }
+        .wrap_nav{
+            display: flex;
+            width: 100%;
+            margin-left: 3em;
+            .nav2{
+                display: block;
+                .n2prop{
+                    display: flex;
+                    gap: 1em;
+                }
+            }
+            .logo{
+                color: white;
+                font-size: 25px;
+                font-weight: 700;
+            }
+            .search{
+                display: none;
+            }
+            ul{
+                display: none;
+            }
+            .hamburger{
+                display: flex;
+                position: absolute;
+                right: 2em;
+                flex-direction: column;
+                .bar{
+                    width: 1.2em;
+                    border: 1px black solid;
+                    margin-bottom: 3px;
+                }
+            }
+            .hamburger:hover{
+                .bar{
+                    position: relative;
+                }
+                .b1{
+                    transform: rotate(45deg);
+                    top: 7px;
+                }
+                .b2{
+                    opacity: 0;
+                }
+                .b3{
+                    transform: rotate(-45deg);
+                    top: -3px;
+                }
+            }
+        }
+        
+    }
+    </style>
+    
+</head>
+<body>
+    <nav>
+        <div class="wrap_nav">
+            <div class="logo">Nick's</div>
+            <div class="search_bar">
+                <input type="text" name="search" class="search">
+            </div>
+            <div class="nav2">        <!-- new nav for mob -->
+                <div class="n2prop">
+                    <div>Home</div>
+                    <div>About us</div>
+                </div>
+            </div>
+            <div class="hamburger">       <!-- menu bar for mob -->
+                <div class="b1 bar"></div>
+                <div class="b2 bar"></div>
+                <div class="b3 bar"></div>
+            </div>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Advertisement</li>
+                <li>Contact Us</li>
+                <li>Links</li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="notification"></div>
+        <div class="ts_cont">
+            <div class="main_left">
+                <form action="/timer" class="left_form" method="POST">
+                    <div class="con1 con">
+                        <label for="name" class="label">Name</label>
+                        <input type="text" class="name_input" name="name_input" required>
+                    
+                    </div>
+                    <div class="con2 con">
+                        <label for="time" class="label">Timing</label>
+                        <div class="time_btn">
+                            <input type="number" class="time_input" name="time_input" min="0" max="180" step="1" required>
+                            <button class="reset_btn" type="button" onclick="resetTimer()">x</button>
+                        </div>
+
+                                <!-- Confirm Message -->
+                        <div class="background_cf">
+                            <div class="confirm_form"> 
+                                <label for="a1">Are you want to start timer for the
+                                    " <span id="name"></span> " for 
+                                    " <span id="timing"></span> "  min ?</label>
+                                <div class="cf_btns">
+                                    <button class="cf_btn1 cf_btn" type="button" onclick="t_submit(event)">Confirm</button>
+                                    <button class="cf_btn2 cf_btn" type="button" onclick="cancel()">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" >Submit</button>
+                    </div>
+                </form>
+                <table>
+                    <tr>
+                        <th>Status</th>
+                        <th>Name</th>
+                        <th>Time</th>
+                        <th>Start</th>
+                        <th>Stop</th>
+                    </tr>
+                </table>
+                <div class="bottom_form">
+                    <table class="table">
+                            {% for entry in entries %}
+                                <tr class="row-{{ entry['_id'] }}">
+                                    <td><span class="status_s" id="status-{{ entry['_id'] }}">{{ entry['Status'] }}</span></td>
+                                    <td>
+                                        <div class="delete_data">
+                                            <span class="name_data">{{ entry['Name'] }}</span>
+                                            <div class="delete_btn" onclick="del_confirm(`{{ entry['_id'] }}`)">delete</div>
+
+
+                                            <div class="opacity_bottom_form">
+                                                <div class="confirm_bottom_form"> 
+                                                    <label for="a1">Do you want to delete the selected record ?</label>
+                                                    <div class="cbf_btns">
+                                                        <button class="cbf_btn1 cbf_btn" type="button" onclick="delete_row()">Confirm</button>
+                                                        <button class="cbf_btn2 cbf_btn" type="button" onclick="cancel()">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{ entry['Timing'] }}</td>
+                                    <td>{{ entry['Created_at'].split(' ')[1].rsplit(':',1)[0] }}</td>
+                                    <td>{{ entry['Stop_at'].split(' ')[1].rsplit(':',1)[0] }}</td>
+                                </tr>
+                            {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <div class="main_right">
+                <div class="Timing_chart">
+                    <div id="timer">00:00</div>
+                </div>
+                <div id="clock"></div>
+                <audio id="audioPlayer">
+                    <source src="{{ url_for('play_audio') }}" type="audio/wav">
+                </audio>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+
+        const form = document.querySelector(".left_form");
+        const input1 = document.querySelector(".name_input");
+        const input2 = document.querySelector(".time_input");
+        const cf_input1 = document.querySelector("#name");
+        const cf_input2 = document.querySelector("#timing");
+        const visibility = document.querySelector(".background_cf");
+        const opacity = document.querySelector(".opacity_bottom_form");
+        const del_conf = document.querySelector(".cbf_btn1");
+        const form_name_tag = document.querySelector(".name_data");
+        const form_btn_tag = document.querySelector(".delete_data");
+        const info = document.querySelector(".notification");
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault(); // Stop page reload
+            let formData = new FormData(this); // Capture form data
+            let response = await fetch("/timer", {
+                method: "POST",
+                body: formData
+            });
+            startTimer(input2.value);
+            input1.value = "";
+            input2.value = "";
+            await message("✔ Form Submitted Successfully","green");        
+            setTimeout(() => {
+                window.location.reload(); 
+            }, 2000);
+        });
+
+        input1.addEventListener('keydown', function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); 
+                input2.focus();
+            }
+        });
+        input2.addEventListener('keydown', function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                if (form.checkValidity()) {
+                    visibility.style.display='block';
+                    // startTimer(input2.value);
+                    cf_input1.innerText=input1.value;
+                    cf_input2.innerText=input2.value;
+                }
+                else{
+                    form.reportValidity();
+                }
+            }
+        });
+        let timerInterval;
+        let startTime;
+        let timeLeft;
+
+function startTimer(time) {
+    if (timerInterval) clearInterval(timerInterval); // Stop any existing timer
+
+    startTime = Date.now(); // Store the exact start time
+    localStorage.setItem("timerStart", startTime); // Save it in localStorage
+    localStorage.setItem("timerDuration", ((time * 60)+1)); // Save total duration in seconds
+
+    updateTimer(); // Start countdown
+    timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+    let storedStart = localStorage.getItem("timerStart");
+    let storedDuration = localStorage.getItem("timerDuration");
+
+    if (!storedStart || !storedDuration) return; // No timer stored, do nothing
+
+    let elapsed = Math.floor((Date.now() - storedStart) / 1000); // Time passed in seconds
+    timeLeft = storedDuration - elapsed; // Remaining time
+
+    if (timeLeft == 0) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        localStorage.removeItem("timerStart");
+        localStorage.removeItem("timerDuration");
+        document.getElementById("timer").textContent = "00:00";
+        play_alarm();
+        return;
+    }
+
+    let min = Math.floor(timeLeft / 60);
+    let sec = timeLeft % 60;
+    document.getElementById("timer").textContent = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+}
+
+function resetTimer() {
+    if(timerInterval){
+        clearInterval(timerInterval);
+        timerInterval = null;
+        localStorage.removeItem("timerStart");
+        localStorage.removeItem("timerDuration");
+        document.getElementById("timer").textContent = "00:00";
+        cancelForm();
+        message("🚨 Timer is Stops!","red");
+    }
+    else {
+        if(input1.value || input2.value){
+            input1.value = "";
+            input2.value = "";
+            message("🚨 The input values are resets!","red");
+        }
+        else    
+            message("🚨 There's no timer active currently...","red");
+    }
+}
+
+// Restore the timer when the page reloads
+window.onload = function () {
+    if (localStorage.getItem("timerStart")) {
+        updateTimer();
+        timerInterval = setInterval(updateTimer, 1000);
+    }
+};
+
+
+        function cancel(){
+            if(visibility){
+                visibility.style.display='none';
+                input1.value = "";
+                input2.value = "";}
+            if(opacity){
+                opacity.style.display='none';
+            }
+        }
+        
+        function t_submit(event){
+            event.preventDefault();
+            visibility.style.display='block';
+            startTimer(input2.value);
+            message("✔  Data Successfully Created!!");
+            setTimeout(() => {
+                form.submit();
+            }, 2500);
+        }
+
+        function play_alarm(){
+            if (count<3){
+                updateForm();
+                alarm();
+            }
+        }
+        let count=0;
+        function alarm(){
+            let audio = document.getElementById("audioPlayer");
+            if (count<3){
+                audio.play();
+                count++;
+                audio.onended = function () {
+                    setTimeout(() => {
+                        alarm(); 
+                    }, 2500);
+                };
+            }
+        }
+
+        
+        async function updateForm() { 
+            let response = await fetch("/updated_data", { method: "POST" });
+            let data = await response.json();
+
+            if (data.status === "✅") {
+                let statusElement = document.getElementById(`status-${data._id}`);
+                if (statusElement) {
+                    statusElement.innerText = "✅"; // Update status in table
+                    message("🚨 Times Up!...","darkred");
+                }
+            }
+        }
+
+        async function cancelForm() { 
+            let response = await fetch("/canceled_data", { method: "POST" });
+            let data = await response.json();
+
+            if (data.status === "❌") {
+                let statusElement = document.getElementById(`status-${data._id}`);
+                if (statusElement) {
+                    statusElement.innerText = "❌"; // Cancel status in table
+                }
+            }
+        }
+
+        let doc_id = null; 
+        function del_confirm(selectedId){
+            doc_id=selectedId;
+            opacity.style.display="block";
+
+        }
+        async function delete_row() {
+            opacity.style.display="none";
+            let response = await fetch(`/delete/${doc_id}`, { method: "DELETE" });
+
+            if (response.ok) {
+                message("🚨 Document deleted successfully!");
+                let row = document.querySelector(".row-"+doc_id);
+                if(row) row.remove();
+                doc_id = null;
+            } else {
+                message("🚨 Failed to delete document!");
+            }
+            
+        }
+        
+
+        function message(sos,color="black"){
+            info.style.display="block";
+            info.style.color = color;
+            info.innerHTML=sos;
+            setTimeout(() => {
+                info.style.color = color;
+                info.innerHTML="";
+                info.style.display = "none";
+            }, 5000);
+        }
+        
+
+        function updateClock() {
+            const now = new Date();
+            document.getElementById("clock").innerText =
+                now.toLocaleTimeString('en-GB', { hour12: false });
+        }
+        setInterval(updateClock, 1000);
+        updateClock(); // Run once immediately
+
+    </script>
+</body>
+</html>
