@@ -13,6 +13,6 @@
     <nav>{% block nav %}{% endblock %}</nav>
     <main>{% block main %}{% endblock %}</main>
     <footer>{% block footer %}{% endblock %}</footer>
-    <script src="{{url_for('static', filename='js/layout.js')}}"></script>
+    {% block script_link %}<script src="{{url_for('static', filename='js/layout.js')}}"></script>{% endblock %}
 </body>
 </html>
