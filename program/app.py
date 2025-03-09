@@ -2,11 +2,15 @@ from flask import Flask,render_template,request,redirect,url_for,send_file,jsoni
 from pymongo import MongoClient,DESCENDING
 from datetime import datetime,timedelta
 from bson import ObjectId
+from dotenv import load_dotenv
 import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 app=Flask(__name__)
 
-MONGO_URI="mongodb+srv://veerak:doggydon.@clouddb.gt9k6.mongodb.net/?retryWrites=true&w=majority&appName=clouddb"
+MONGO_URI = os.getenv("MONGO_URI")
 
 client = MongoClient(MONGO_URI) 
 db = client["demodb"]  
