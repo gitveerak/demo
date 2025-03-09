@@ -2,12 +2,9 @@ from flask import Flask,render_template,request,redirect,url_for,send_file,jsoni
 from pymongo import MongoClient,DESCENDING
 from datetime import datetime,timedelta
 from bson import ObjectId
-from dotenv import load_dotenv
 import os
 
 # Load .env file only in development (not in Render, Heroku, etc.)
-if os.getenv("FLASK_ENV") != "production":
-    load_dotenv()
 
 app=Flask(__name__)
 
