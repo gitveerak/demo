@@ -5,8 +5,9 @@ from bson import ObjectId
 from dotenv import load_dotenv
 import os
 
-# Load environment variables from .env file
-load_dotenv()
+# Load .env file only in development (not in Render, Heroku, etc.)
+if os.getenv("FLASK_ENV") != "production":
+    load_dotenv()
 
 app=Flask(__name__)
 
