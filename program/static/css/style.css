@@ -13,11 +13,13 @@ nav{
     background-color: rgb(95, 95, 243);
     }
 .wrap_nav{
-    display: flex;
-    align-items: center;
     width: 100%;
-    margin-left: 5em;
-    gap: 1em;
+    .nav1{
+        display: flex;
+        align-items: center;
+        margin-left: 5em;
+        gap: 1em;
+    }
     .nav2{display: none;}
     .hamburger{display: none;}
     .logo{
