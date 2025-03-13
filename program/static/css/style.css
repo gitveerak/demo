@@ -65,91 +65,106 @@ nav{
         }
     }
 }
-@media (max-width:380px) {
-    *{margin: 0;padding: 0}
-    body{
+@media (max-width: 720px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
         background-color: rgb(84, 164, 245);
-    }  
-    .wrap_nav{
+    }
+
+    .wrap_nav {
         display: flex;
         background-color: orange;
         width: 100%;
-        padding:  1em 0.5em;
-        .nav1{
-            display: none;
-        }
-        .nav2{
-            display: flex;
-            gap:1em;
-            padding: 0 1em;
-            .n2prop{
-                display: flex;
-                align-items: center;
-                gap: 0.5em;
-                .n2prop1{
-                    padding: 6px;
-                    font-size: 1.2em;
-                    font-weight: 600;
-                    color: rgb(75, 72, 71);
-                    
-                }
-
-            }
-            .n2prop1:hover{
-                background-color: rgba(226, 149, 5, 0.932);
-                border-radius: 12px;
-                color: bisque;
-            }
-        }
-        .logo{
-            color: red;
-            font-size: 1.9em;
-            font-weight: 600;
-        }
-        .search2{
-            display: flex;
-            width:1.4em;
-            height: 1.8em;
-            justify-content: center;
-        }
-        .hamburger{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            .bar{
-                position: relative;
-                width: 1.2em;
-                border: 1px black solid;
-                margin-bottom: 3px;
-            }
-            .menu_container{
-                display: none;
-                position: absolute;
-                top: 9%;
-                right: 1%;
-                width: 25%;
-                height: 30%;
-                padding: 1em 3em 2em 1em;
-                background-color: rgb(1, 7, 15);
-                color: azure;
-                border-radius: 12px;
-                ul{
-                    display: flex;
-                    flex-direction: column;
-                    gap: 1em;
-                    li{
-                        list-style-type: none;
-                        padding-bottom: 0.2em;
-                        border-bottom: solid wheat 1px;
-                        font-size: 1.5em;
-                    }
-                    li:hover{
-                        color: lightseagreen;
-                        border-color: lightseagreen;
-                    }
-                }
-            }
-        }
+        padding: 1em 0.5em;
     }
-    
+
+    .nav1 {
+        display: none;
+    }
+
+    .nav2 {
+        display: flex;
+        gap: 1em;
+        padding: 0 1em;
+    }
+
+    .n2prop {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+    }
+
+    .n2prop1 {
+        padding: 6px;
+        font-size: 1.2em;
+        font-weight: 600;
+        color: rgb(75, 72, 71);
+    }
+
+    .n2prop1:hover {
+        background-color: rgba(226, 149, 5, 0.932);
+        border-radius: 12px;
+        color: bisque;
+    }
+
+    .logo {
+        color: red;
+        font-size: 1.9em;
+        font-weight: 600;
+    }
+
+    .search2 {
+        display: flex;
+        width: 1.4em;
+        height: 1.8em;
+        justify-content: center;
+    }
+
+    .hamburger {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .bar {
+        position: relative;
+        width: 1.2em;
+        border: 1px black solid;
+        margin-bottom: 3px;
+    }
+
+    .menu_container {
+        display: none;
+        position: absolute;
+        top: 9%;
+        right: 1%;
+        width: 25%;
+        height: 30%;
+        padding: 1em 3em 2em 1em;
+        background-color: rgb(1, 7, 15);
+        color: azure;
+        border-radius: 12px;
+    }
+
+    .menu_container ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .menu_container li {
+        list-style-type: none;
+        padding-bottom: 0.2em;
+        border-bottom: solid wheat 1px;
+        font-size: 1.5em;
+    }
+
+    .menu_container li:hover {
+        color: lightseagreen;
+        border-color: lightseagreen;
+    }
 }
