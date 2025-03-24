@@ -15,7 +15,7 @@
 <div class="background_container">
     <img class="bg" src="{{url_for('static', filename='images/reg_bg.png')}}">
     <div class="log_form_container">
-        <form action="/reg" class="register_page" method="POST">
+        <form action="{{ url_for('reg') }}" class="register_page" method="POST">
             <div class="login_label">Registeration Page</div>
             <label for="username">username</label>
             <input type="text" name="username" id="username" required>
