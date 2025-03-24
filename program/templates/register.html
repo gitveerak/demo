@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block title %}Registeration Page{% endblock %}
+
+{% block style_link %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/register.css')}}">
+{% endblock %}
+
+{% block nav %}
+{% include 'nav.html' %}
+{% endblock %}
+
+{% block main %}
+<div class="background_container">
+    <img class="bg" src="{{url_for('static', filename='images/reg_bg.png')}}">
+    <div class="log_form_container">
+        <form action="/reg" class="register_page" method="POST">
+            <div class="login_label">Registeration Page</div>
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" required>
+            <br><br>
+            <label for="email">eamil</label>
+            <input type="email" name="email" id="email" required>
+            <br><br>
+            <label for="dob">d.o.b</label>
+            <input type="date" name="dob" id="dob" required>
+            <br><br>
+            <div class="password_container">
+                <label for="password">password</label>
+                <input type="password" id="password" name="password" required>
+                <img class="show_hide" src="{{url_for('static', filename='images/show.png')}}" alt="show_btn">
+            </div>
+            <br>
+            <div class="repeat_password_container">
+                <label for="repeat_password">repeat password</label>
+                <input type="password" id="repeat_password" name="repeat_password" required>
+                <img class="rpshow_hide" src="{{url_for('static', filename='images/show.png')}}" alt="show_btn">
+            </div>
+            <br><br><br>
+            <button type="submit" >Register</button>
+            <br><br>
+            <a href="{{ url_for('login') }}">To Login Page</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block script_link %}
+    <script src="{{url_for('static', filename='js/layout.js')}}"></script>
+{% endblock %}

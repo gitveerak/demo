@@ -35,4 +35,21 @@ document.addEventListener('DOMContentLoaded', function () {
             menu_drpbx.style.display = "none"; 
         }
     }
+    
+    //Show password
+    let passwordInput = document.getElementById("password");
+    let togglePassword = document.querySelector(".show_hide");
+
+    let showIcon = togglePassword.src; 
+    let hideIcon = showIcon.replace("show.png", "hide.png"); 
+
+    togglePassword.addEventListener("click", function() {
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            togglePassword.src = hideIcon; // Swap to hide icon
+        } else {
+            passwordInput.type = "password";
+            togglePassword.src = showIcon; // Swap back to show icon
+        }
+    });
 });

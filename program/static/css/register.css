@@ -3,36 +3,27 @@
     padding: 0;
 }
 body{
-    background-color:transparent;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 main{
-    .message{
-        position: fixed;
-        display: none;
-        background-color: rgba(30, 255, 0, 0.6);
-        color: rgb(0, 0, 0);
-        padding: 0.5em 1em 0.5em 5em;
-        border-top-right-radius: 1.5em;
-        border-bottom-right-radius: 1.5em;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        top: 20%;
-        left:3%;
+    .bg{
+        width: 100%;
+        padding-top: 5em;
     }
-    
     .log_form_container{
-        padding: 1em;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         position: absolute;
         color: black;
-        top: 28%;
+        top: 20%;
         left: 0;
         form{
             padding: 2em 3em;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
             width: 34em;
-            height: 22em;
+            height: 37em;
             font-family: 'Brush Script MT', cursive;
             .login_label{
                 color: black;
@@ -50,20 +41,34 @@ main{
             }
             input{
                 height: 1.7em;
-                padding: 0 1.4em 0 1em;
+                padding: 0 1.3em 0 1em;
                 outline: none;
                 font-size: 1em;
                 font-weight: bold;
                 border-radius: 1em;
                 border-color: transparent;
             }
+            #email{margin-left: 2em;}
+            #dob{margin-left: 2.7em;}
             .password_container{
                 background-color: transparent;
                 position: relative;
                 .show_hide{
                     position: absolute;
                     top: 20%;
-                    right: 26%;
+                    right: 25.5%;
+                }
+            }
+            .repeat_password_container{
+                background-color: transparent;
+                position: relative;
+                #repeat_password{
+                    width: 9.5em;
+                }
+                .rpshow_hide{
+                    position: absolute;
+                    top: 20%;
+                    right: 25.5%;
                 }
             }
             button{
@@ -71,7 +76,7 @@ main{
                 width: 5em;
                 height: 2em;
                 font-size: 2em;
-                background-color: rgb(255, 183, 0);
+                background-color: rgba(153, 0, 255, 0.459);
                 border-radius: 1em;
                 border: none;
                 cursor: pointer;

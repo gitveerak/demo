@@ -12,9 +12,33 @@
 {% endblock %}
 
 {% block main %}
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti esse iste dolorem cupiditate commodi obcaecati doloribus, harum libero, vero possimus voluptate accusantium quam provident soluta quibusdam perferendis reprehenderit doloremque optio, tempore magnam dolorum! Ad doloremque optio nulla eius corporis mollitia at repellendus accusantium necessitatibus repellat quam, tempore minus similique, soluta est in dignissimos quos fugiat vero error eum quidem itaque. Ipsam id odit nostrum iste, molestiae saepe porro totam. Quisquam accusamus cupiditate dignissimos iusto? Fugit dolorum cumque voluptatum odit ad? Eos saepe aliquid quia quisquam voluptates sequi tenetur minus delectus ut, nesciunt facere porro, cupiditate autem alias, soluta temporibus dolorum adipisci blanditiis. Sapiente veritatis, quis numquam modi obcaecati ipsam est! Tempore possimus dolor voluptas similique natus aut quidem accusantium unde voluptatum nemo laborum perferendis enim officiis tenetur provident, voluptatem saepe consectetur doloribus quia? Labore, dolores, nihil cum voluptatibus iusto nulla perspiciatis mollitia neque eius asperiores atque explicabo similique eaque iure aspernatur aperiam corrupti totam pariatur dolor quas, omnis veniam voluptas nam. Nostrum ullam distinctio qui voluptates mollitia quaerat quibusdam laudantium dolorum incidunt molestias recusandae, consequatur exercitationem asperiores ea quam. At quia ipsam magni? Nostrum beatae ipsa, nulla quibusdam magni provident debitis reprehenderit iure et reiciendis quam accusantium. Cumque aspernatur repudiandae eos provident nam officia minima beatae laudantium neque, incidunt, iure distinctio, molestiae quae exercitationem sed id repellat totam. Odit eum cupiditate officiis ut illo consequuntur voluptates aperiam, expedita fugit quaerat aut quas nesciunt eveniet sint possimus praesentium numquam unde animi iure odio perferendis voluptatibus sequi eaque porro! Magnam quos id voluptatum qui eos obcaecati labore amet, sit quis ratione reprehenderit ad nisi vel architecto minus rerum consectetur culpa tempora. Eveniet veritatis inventore enim dicta natus sunt eius quisquam maxime rem repellendus? Pariatur doloribus rerum qui omnis rem, assumenda debitis, magnam reiciendis explicabo, quisquam inventore aliquid atque ex ipsum enim aperiam suscipit delectus temporibus asperiores. Alias maxime magnam nihil explicabo cum exercitationem, quidem, perferendis repudiandae, eum ab modi consectetur a unde quia sapiente cupiditate cumque rem ipsam quibusdam eius. Obcaecati numquam quasi deleniti facere ipsa. Voluptates adipisci odit debitis placeat, perspiciatis nam nemo amet mollitia quia. Ut veritatis voluptate ipsa, quia aperiam tenetur velit veniam nisi cum aliquid explicabo labore perferendis! Earum sint nostrum, quam, vel doloribus soluta voluptates quos itaque magnam voluptatum architecto sed repellat recusandae maiores ullam tempora expedita cupiditate deleniti. Possimus dolor, qui placeat voluptatem dolore est at praesentium excepturi quidem! Autem perspiciatis iusto inventore nostrum facere voluptatum, cumque explicabo vitae dolore. Sunt ea voluptates obcaecati culpa cum maiores perspiciatis soluta et facilis itaque neque, eveniet ipsam a beatae molestias autem in quas iusto voluptatum? Voluptas ut beatae dolorem, minus fugit quas. Quo, assumenda accusantium minima, voluptate rem perspiciatis maxime fugit ratione ut amet reprehenderit temporibus laboriosam vero sequi alias dolorem eum itaque modi veniam. Omnis assumenda officiis id illo cum officia dicta velit doloremque laborum impedit praesentium, molestiae eaque veniam eum quisquam quos, ullam debitis totam quod sequi earum, vitae excepturi! Quasi doloribus, ipsum accusantium odio possimus optio assumenda explicabo expedita deserunt ducimus laudantium, sapiente quos. Architecto?
+{% if message or report %}
+<div class="message">
+    {{ message if message else report }}
+</div>
+{% endif %}
+<div class="background_container">
+    <img src="{{url_for('static', filename='images/image.png')}}" width="100%">
+    <div class="log_form_container">
+        <form action="/log" method="POST" >
+            <div class="login_label">Login Page</div>
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" placeholder="   Email or username" required><br><br>
+            <div class="password_container">
+                <label for="password">password</label>
+                <input type="password" id="password" name="password" placeholder="   *******" required>
+                <img class="show_hide" src="{{url_for('static', filename='images/show.png')}}" alt="show_btn">
+            </div>
+            <br><br><br>
+            <button type="submit" >Submit</button>
+            <br><br>
+            <a href="{{ url_for('register') }}">Registeration Page for new users</a>
+        </form>
+    </div>
+</div>
 {% endblock %}
 
 {% block script_link %}
     <script src="{{url_for('static', filename='js/layout.js')}}"></script>
+    <script src="{{url_for('static', filename='js/login.js')}}"></script>
 {% endblock %}
